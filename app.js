@@ -204,3 +204,135 @@ if (contactForm) {
         this.reset();
     });
 }
+// project page
+// Projects Filter Functionality
+const filterButtons = document.querySelectorAll('.filter-btn');
+const projectCards = document.querySelectorAll('.project-card');
+
+filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        // Remove active class from all buttons
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        // Add active class to clicked button
+        button.classList.add('active');
+        
+        const filterValue = button.getAttribute('data-filter');
+        
+        projectCards.forEach(card => {
+            if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                card.style.display = 'block';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    });
+});
+
+// Project Card Animation
+const projectsContainer = document.querySelector('.projects-container');
+
+function animateProjects() {
+    const projectCards = document.querySelectorAll('.project-card');
+    const triggerBottom = window.innerHeight / 5 * 4;
+    
+    projectCards.forEach((card, index) => {
+        const cardTop = card.getBoundingClientRect().top;
+        
+        if (cardTop < triggerBottom) {
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+        }
+    });
+}
+
+// Set initial state for animation
+document.querySelectorAll('.project-card').forEach((card, index) => {
+    card.style.opacity = '0';
+    card.style.transform = 'translateY(50px)';
+    card.style.transition = `all 0.5s ease ${index * 0.1}s`;
+});
+
+// Run once on page load
+animateProjects();
+
+// Then run on scroll
+window.addEventListener('scroll', animateProjects);
+// contact page
+// Contact Form Validation
+const contactForm = document.getElementById('contactForm');
+if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Get form values
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const subject = document.getElementById('subject').value.trim();
+        const message = document.getElementById('message').value.trim();
+        
+        // Simple validation
+        if (name === '' || email === '' || subject === '' || message === '') {
+            alert('Please fill in all fields');
+            return;
+        }
+        
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            alert('Please enter a valid email address');
+            return;
+        }
+        
+        // If all validations pass - in a real scenario, you would send this to a server
+        alert('Thank you for your message! I will get back to you soon.');
+        
+        // Reset form
+        this.reset();
+        
+        // In a real implementation, you would send the form data to a server here
+        // Example using fetch API:
+        /*
+        const formData = new FormData(this);
+        
+        fetch('your-server-endpoint', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            alert('Message sent successfully!');
+            this.reset();
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('There was an error sending your message. Please try again.');
+        });
+        */
+    });
+}
+
+// Animate contact form elements on load
+document.addEventListener('DOMContentLoaded', function() {
+    const formGroups = document.querySelectorAll('.form-group');
+    const infoItems = document.querySelectorAll('.info-item');
+    
+    formGroups.forEach((group, index) => {
+        group.style.opacity = '0';
+        group.style.transform = 'translateY(20px)';
+        group.style.transition = `all 0.5s ease ${index * 0.1}s`;
+        
+        setTimeout(() => {
+            group.style.opacity = '1';
+            group.style.transform = 'translateY(0)';
+        }, 100);
+    });
+    
+    infoItems.forEach((item, index) => {
+        item.style.opacity = '0';
+        item.style.transform = 'translateX(-20px)';
+        item.style.transition = `all 0.5s ease ${index * 0.1}s`;
+        
+        setTimeout(() => {
+            item.style.opacity = '1';
+            item.style.transform = 'translateX(0)';
+        }, 100);
+    });
+});
