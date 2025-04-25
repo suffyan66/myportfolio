@@ -1,0 +1,59 @@
+{
+  "profile": {
+    "name": "Suffyan Ansari",
+    "role": "Frontend Developer",
+    "description": "I build beautiful, responsive websites with clean code"
+  },
+  "about": {
+    "title": "Who am I?",
+    "paragraphs": [
+      "I'm a passionate frontend developer with expertise in HTML, CSS, and JavaScript.",
+      "With a keen eye for design and attention to detail, I transform ideas into beautiful, functional websites."
+    ],
+    "cvLink": "#"
+  },
+  "skills": {
+    "frontend": {
+      "HTML": 95,
+      "CSS": 90,
+      "JavaScript": 85,
+      "React": 80
+    },
+    "other": {
+      "Git": 85,
+      "Responsive Design": 90,
+      "UI/UX": 75
+    }
+  },
+  "projects": [
+    {
+      "title": "E-commerce Website",
+      "description": "A fully responsive e-commerce site built with HTML, CSS, and JavaScript.",
+      "image": "https://via.placeholder.com/400x300",
+      "link": "#"
+    },
+    {
+      "title": "Weather App",
+      "description": "A weather application that fetches data from an API and displays it beautifully.",
+      "image": "https://via.placeholder.com/400x300",
+      "link": "#"
+    },
+    {
+      "title": "Task Manager",
+      "description": "A task management application with local storage functionality.",
+      "image": "https://via.placeholder.com/400x300",
+      "link": "#"
+    }
+  ],
+  "contact": {
+    "email": "your.email@example.com",
+    "phone": "+123 456 7890",
+    "location": "Your City, Country",
+    "social": {
+      "github": "#",
+      "linkedin": "#",
+      "twitter": "#",
+      "instagram": "#"
+    }
+  }
+}
